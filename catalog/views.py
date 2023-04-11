@@ -9,7 +9,7 @@ def index(request):
     num_instances = BookInstance.objects.all().count()
 
     num_instances_available = BookInstance.objects.all().count()
-    #filter(status_exact=4)
+    # filter(status_exact=4)
     num_authors = Author.objects.count()
     return render(request, 'index.html',
                   context={'num_books': num_books,
@@ -22,4 +22,5 @@ class BookListView(generic.ListView):
     model = Book
 
 
-
+class BookDetailView(generic.DetailView):
+    model = Book
