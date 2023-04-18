@@ -35,6 +35,7 @@ class BookAdmin(admin.ModelAdmin):
 class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('book', 'status', 'borrower', 'due_back', 'id')
     list_filter = ('status', 'due_back')
+
     fieldsets = (
         ('Экземпляр книги', {
             'fields': ('book', 'imprint', 'inv_mode')

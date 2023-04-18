@@ -24,10 +24,18 @@ urlpatterns = [
     url(r'^books/$', views.BookListView.as_view(), name='books'),
     url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
     url(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
+
+
+
 ]
 
 urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ]
 
 
+# urlpatterns += [
+#     url(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+# ]
+#
