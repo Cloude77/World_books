@@ -3,6 +3,16 @@ from django.http import HttpResponse
 from .models import Book, Author, BookInstance
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import *
+from .forms import AuthorsForm
+
+
+def authors_add(request):
+    author = Author.objects.all()
+    authorsform = AuthorsForm()
+    return render(request, "catalog/authors_add.html",
+                  {"form": authorsform, "author": author})
+
 
 
 class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
@@ -53,15 +63,3 @@ class AuthorListView(generic.ListView):
     paginate_by = 4
 
 
-# class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
-#     # '''
-#     # Универсальный класс представления списка книг,
-#     # ,находящихся  в заказе у текущего пользователя.
-#     # '''
-#
-#     model = BookInstance
-#     template_name = 'catalog/book_instance.html'
-#     paginate_by = 10
-#
-#     def get_queryset(self):
-#         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='2').order_by('due_back')
