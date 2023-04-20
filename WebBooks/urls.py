@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^books/$', views.BookListView.as_view(), name='books'),
     url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
     url(r'^authors/$', views.AuthorListView.as_view(), name='authors'),
-
+    url(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
 
 
 ]
@@ -28,5 +28,4 @@ urlpatterns += [
     url(r'^book/update/(?P<pk>\d+)$', views.BookUpdate.as_view(), name='book_update'),
     url(r'^book/delete/(?P<pk>\d+)$', views.BookDelete.as_view(), name='book_delete'),
 ]
-
 

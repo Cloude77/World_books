@@ -37,10 +37,10 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
 
     fieldsets = (
-        ('Экземпляр книги', {
+        (None, {
             'fields': ('book', 'imprint', 'inv_mode')
         }),
-        ('Статус и окончание его действия', {
+        ('Availability', {
             'fields': ('status', 'due_back', 'borrower')
         }),
     )

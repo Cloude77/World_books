@@ -7,6 +7,6 @@ urlpatterns = [
 
 ]
 
-urlpatterns += [
-    url(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
-]
+# urlpatterns += [
+#     url(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+# ]
